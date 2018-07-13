@@ -1320,7 +1320,7 @@ class ViewpointInstance:
     cameraNode.SetFocalPoint(cameraNewFocalPointRas)
     self.resetCameraClippingRange()
     self.cameraShiftCounter += 1
-    logging.info("Number of auto-center camera shifts : " + self.cameraShiftCounter)
+    logging.info("Number of auto-center camera shifts : %s",  self.cameraShiftCounter)
 
   def autoCenterGetModelCurrentCenterRas(self):
     modelBoundsRas = [0,0,0,0,0,0]
