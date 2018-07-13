@@ -798,6 +798,9 @@ class ViewpointInstance:
     # global
     self.viewNode = None
 
+    # tracks auto-center activity
+    self.cameraShiftCounter = 0
+
     self.currentMode = 0
     self.currentModeOFF = 0
     self.currentModeBULLSEYE = 1
@@ -1316,6 +1319,8 @@ class ViewpointInstance:
     cameraNode.SetPosition(cameraNewPositionRas)
     cameraNode.SetFocalPoint(cameraNewFocalPointRas)
     self.resetCameraClippingRange()
+    self.cameraShiftCounter += 1
+    logging.info("Number of auto-center camera shifts : " + self.cameraShiftCounter)
 
   def autoCenterGetModelCurrentCenterRas(self):
     modelBoundsRas = [0,0,0,0,0,0]
